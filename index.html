@@ -10,23 +10,22 @@
 </head>
 <body>
     <!-- Frame 1 -->
-    <section class="frame-satu" id="Home">
+    <section class="frame" id="Home">
         <div class="container">
             <h1>Gallery</h1>
         </div>
     </section>
 
     <!-- Header -->
-    <section class="header">
-        
+    <nav class="header">
             <div class="navigation" id="navigation">
-                <ul class = "header-link">
-                    <li class= "header-link-item active"><a href="#Home" class="nav-link" role="tab" data-toggle="tab">Home</a></li>
-                    <li class= "header-link-item"><a href="#About" class="nav-link" role="tab" data-toggle="tab">About</a></li>
-                    <li class= "header-link-item"><a href="#Skills" class="nav-link" role="tab" data-toggle="tab">Skills</a></li>
-                    <li class= "header-link-item"><a href="#Gallery" class="nav-link" role="tab" data-toggle="tab">Gallery</a></li>
-                    <li class= "header-link-item"><a href="#Project" class="nav-link" role="tab" data-toggle="tab">Project</a></li>
-                    <li class= "header-link-item"><a href="#Project" class="nav-link" role="tab" data-toggle="tab">Contact</a></li>
+                <ul class = "header-link  ">
+                    <li class= "header-link-item aktif"><a href="#Home"  >Home</a></li>
+                    <li class= "header-link-item"><a href="#About" >About</a></li>
+                    <li class= "header-link-item"><a href="#Skills" >Skills</a></li>
+                    <li class= "header-link-item"><a href="#Gallery" >Gallery</a></li>
+                    <li class= "header-link-item"><a href="#Project" >Project</a></li>
+                    <li class= "header-link-item"><a href="#Contact" >Contact</a></li>
                 </ul>
             </div>
             <div class="hamburger" id="hamburger-menu">
@@ -34,7 +33,17 @@
                 <div class="menu-bar2">-</div>
                 <div class="menu-bar3">-</div>
             </div>
-    </section>
+            <div class="overlay overlay-slide-left" id="overlay">
+                <ul class = "header-link  ">
+                    <li id="nav-1" class= "slide-out"><a href="#Home"  >Home</a></li>
+                    <li id="nav-2" class= "slide-out"><a href="#About" >About</a></li>
+                    <li id="nav-3" class= "slide-out"><a href="#Skills" >Skills</a></li>
+                    <li id="nav-4" class= "slide-out"><a href="#Gallery" >Gallery</a></li>
+                    <li id="nav-5" class= "slide-out"><a href="#Project" >Project</a></li>
+                    <li id="nav-6" class= "slide-out"><a href="#Contact" >Contact</a></li>
+                </ul>
+            </div>
+    </nav>
 
      <!-- Frame 1 -->
      <section class="frame-satu" id="About">
@@ -51,11 +60,27 @@
     </section>
 
         <!-- Frame 1 -->
-        <section class="frame-satu" id="Gallery">
+    <section class="frame-satu" id="Gallery">
         <div class="container">
             <h1>Gallery</h1>
         </div>
     </section>
+
+    <!-- Frame 1 -->
+    <section class="frame-satu" id="Project">
+        <div class="container">
+            <h1>Project</h1>
+        </div>
+    </section>
+
+    <!-- Frame 1 -->
+    <section class="frame-satu" id="Contact">
+        <div class="container">
+            <h1>Contact</h1>
+        </div>
+    </section>
+
+
 
     <script src="./assets/js/header.js"></script>
 </body>
