@@ -201,7 +201,7 @@ body {
 }
 @media (max-width: 576px) {
   .home .container .col-2 .border .img {
-    width: 31em;
+    width: 24em;
     height: 22em;
   }
 }
