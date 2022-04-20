@@ -36,18 +36,22 @@ body{
 .home{
     width: 100%;
     height: calc(100vh - 70px);
-
+    @include android(){
+        height: calc(100vh - 70px);
+    }
     .container{
         display: flex;
         justify-content: space-evenly;
         width: 100%;
-        height: calc(100vh - 80px);
+        height: calc(100vh - 70px);
         @include android(){
             flex-direction: column;
             align-items: center;
+            justify-content: unset;
         }
         .col-1{
             width: 50%;
+            padding-bottom: 50px;
             .inner-container{
                 height: 100%;
                 display: flex;
@@ -89,6 +93,9 @@ body{
                     font-family: $fontOpenSans;
                     @include android(){
                         display: none;
+                    //     font-size: 0.5em;
+                    //     text-align: center;
+                    //     max-width: 100%;
                     }
                     span{
                         color: $gold;
@@ -148,6 +155,9 @@ body{
                         transition-duration: 0.5s;
                         -webkit-transition-timing-function: ease-out;
                         transition-timing-function: ease-out;
+                        @include android(){
+                            border-radius: 10px;
+                        }
                     }
                     &:hover {
                         color: $colorwhite;
@@ -202,7 +212,7 @@ body{
                 background: linear-gradient(180deg, rgba(244,250,26,1) 11%, rgba(26,26,26,1) 100%);
                 @include android(){
                     width: 15em;
-                    height: 20em;
+                    height: 18em;
                     left: 0px;
                     margin-left: 0;
                     
@@ -213,7 +223,7 @@ body{
                     bottom: 0em;
                     @include android(){
                         width: 24em;
-                        height: 22em;
+                        height: 20em;
                     }
                 }
             }
@@ -226,9 +236,12 @@ body{
                 position: absolute;
                 left: 360px;
                 top: 330px;
-                bottom: 0px;
+                // bottom: 0px;
             }
             .inner-container{
+                @include android(){
+                    height: 250px;
+                }
                 .text-follow{
                     text-align: center;
                     color: $colorwhite;
@@ -427,6 +440,7 @@ body{
     justify-content: center;
     // padding-left: 30px;
     // max-width: 70%;
+
 }
 .container {
     width: 100%;
