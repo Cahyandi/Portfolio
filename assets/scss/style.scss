@@ -1,5 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Montserrat:wght@500&family=Orbitron:wght@500&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500;1,600&family=Roboto+Condensed&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Orbitron:wght@500&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500;1,600&family=Roboto+Condensed&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Montserrat:wght@500&family=Orbitron:wght@500&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500;1,600&family=Roboto+Condensed&display=swap');
 $font : 'Poppins', sans-serif;
+$fontAcme:'Acme', sans-serif;
+$fontOpenSans: 'Open Sans', sans-serif;
 $colorwhite: #fff;
 $gold : #F4FA1A;
 $black : #1A1A1A;
@@ -29,19 +33,221 @@ body{
     background: $black;
 }
 
-.frame{
+.home{
     width: 100%;
     height: calc(100vh - 70px);
 
     .container{
+        display: flex;
+        justify-content: space-evenly;
+        width: 100%;
+        height: calc(100vh - 80px);
         @include android(){
-            padding-top: 70px;
+            flex-direction: column;
+            align-items: center;
         }
-        h1{
-            color: $colorwhite;
-            display: flex;
-            justify-content: center;
-            font-size: 100px;
+        .col-1{
+            width: 50%;
+            .inner-container{
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                padding-left: 30px;
+                max-width: 60%;
+                @include android(){
+                    align-items: center;
+                    padding-top: 60px;
+                }
+                p{
+                    color: $colorwhite;
+                    font-size: 2.5em;
+                    font-family: $fontAcme;
+                    letter-spacing: 0.1em;
+                    @include android(){
+                        font-size: 1em;
+                    }
+                }
+                .title{
+                    color: $colorwhite;
+                    font-size: 5.5em;
+                    font-family: $font;
+                    font-weight: bold;
+                    @include android(){
+                        font-size: 2em;
+                    }
+                    span{
+                        color: $gold;
+                    }
+                }
+                .job-desc{
+                    text-align: justify;
+                    padding-top: 15px;
+                    color: $colorwhite;
+                    font-size: 0.8em;
+                    line-height: 15px;
+                    font-family: $fontOpenSans;
+                    @include android(){
+                        display: none;
+                    }
+                    span{
+                        color: $gold;
+                    }
+                }
+                
+                .button{
+                    position: relative;
+                    margin-top: 30px;
+                    width: 8.5em;
+                    height: 3em;
+                    left: 0px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    text-decoration: none;
+                    border: 1px solid #F4FA1A;
+                    box-sizing: border-box;
+                    border-radius: 15px;
+                    color: $gold;
+                    font-family: $font;
+                    font-size: 14px;
+
+                    vertical-align: middle;
+                    -webkit-transform: perspective(1px) translateZ(0);
+                    transform: perspective(1px) translateZ(0);
+                    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+                    // position: relative;
+                    -webkit-transition-property: color;
+                    transition-property: color;
+                    -webkit-transition-duration: 0.5s;
+                    transition-duration: 0.5s;
+                    @include android(){
+                        margin-top: 20px;
+                        width: 7.5em;
+                        height: 3em;
+                        font-size: 11px;
+                        border-radius: 10px;
+                    }
+                    &:before {
+                        content: "";
+                        position: absolute;
+                        z-index: -1;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        background: goldenrod;
+                        border-radius: 15px;
+                        -webkit-transform: scaleX(0);
+                        transform: scaleX(0);
+                        -webkit-transform-origin: 0 50%;
+                        transform-origin: 0 50%;
+                        -webkit-transition-property: transform;
+                        transition-property: transform;
+                        -webkit-transition-duration: 0.5s;
+                        transition-duration: 0.5s;
+                        -webkit-transition-timing-function: ease-out;
+                        transition-timing-function: ease-out;
+                    }
+                    &:hover {
+                        color: $colorwhite;
+                        &:before {
+                            -webkit-transform: scaleX(1);
+                            transform: scaleX(1);
+                            -webkit-transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+                            transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+                        }
+                    }
+                    &:focus {
+                        color: $colorwhite;
+                        &:before {
+                            -webkit-transform: scaleX(1);
+                            transform: scaleX(1);
+                            -webkit-transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+                            transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+                        }
+                    }
+                    &:active {
+                        color: $colorwhite;
+                        &:before {
+                            -webkit-transform: scaleX(1);
+                            transform: scaleX(1);
+                            -webkit-transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+                            transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+                        }
+                    }
+                }
+            }
+        }
+        .col-2{
+            width: 50%;
+            .inner-container{
+                @include android(){
+                    align-items: center;
+                    padding-top: 40px;
+                }
+            }
+            .border{
+                position: relative;
+                display: flex;
+                justify-content: center;
+                width: 22em;
+                height: 25em;
+                left: 95px;
+                margin-left: 100px;
+                // border: 5px solid #F4FA1A;
+                // box-sizing: border-box;
+                border-top-left-radius: 35%;
+                border-top-right-radius: 35%;
+                background: linear-gradient(180deg, rgba(244,250,26,1) 11%, rgba(26,26,26,1) 100%);
+                @include android(){
+                    width: 15em;
+                    height: 20em;
+                    left: 0px;
+                    margin-left: 0;
+                    
+                }
+                .img{
+                    position: absolute;
+                    width: 45em;
+                    bottom: 0em;
+                    @include android(){
+                        width: 31em;
+                        height: 22em;
+                    }
+                }
+            }
+            
+        }
+        .col-3{
+            position: relative;
+            padding-right: 30px;
+            @include android(){
+                position: absolute;
+                left: 360px;
+                top: 330px;
+                bottom: 0px;
+            }
+            .inner-container{
+                .text-follow{
+                    text-align: center;
+                    color: $colorwhite;
+                    font-size: 1.1em;
+                    font-family: $fontOpenSans;
+                    writing-mode: vertical-rl;
+                    
+                }
+                .icon-sosmed{
+                    padding-bottom: 8px;
+                    padding-top: 8px;
+                }
+                hr{
+                    border: none;
+                    border-left:  2px solid $colorwhite;
+                    height: 40px;
+                    
+                }
+            }
         }
     }
 }
@@ -58,7 +264,9 @@ body{
         }
     }
 }
-
+// ===============
+//     Header
+// ===============
 .header{
     position: sticky;
     top: 0;
@@ -78,34 +286,32 @@ body{
                 display: flex;
                 justify-content: center;
                 .header-link-item{
-                    
-                    display: inline-block;
-                    
+                    padding: 20px;
                     a{
                         color: $colorwhite;
                         text-decoration: none;
                         font-size: 16px;
                         font-family: $font;
-                        display: inline-block;
-                        padding: 10px 20px;
-                        // &:hover{
-                        //     color: $gold;
-                        //     content: '';
-                        //     border-bottom: 3px solid $gold;
-                        //     transition: transform 500ms ease-out;
-                        // }
-                    }
-                    &.aktif{
-                        color: $gold;
-                        content: '';
-                        background-color: #F4FA1A;
-                        border-radius: 8px;
-                        border-bottom: 3px solid $gold;
-                        transition: transform 500ms ease-out;
-                        a{
-                            color: #1A1A1A;
+                        // display: inline-block;
+                        // padding: 10px 20px;
+                        &:hover{
+                            color: $gold;
+                            content: '';
+                            border-bottom: 3px solid $gold;
+                            transition: transform 500ms ease-out;
                         }
                     }
+                    // &.aktif{
+                    //     color: $gold;
+                    //     content: '';
+                    //     background-color: #F4FA1A;
+                    //     border-radius: 8px;
+                    //     border-bottom: 3px solid $gold;
+                    //     transition: transform 500ms ease-out;
+                    //     a{
+                    //         color: #1A1A1A;
+                    //     }
+                    // }
                 }
                 
             }
@@ -118,7 +324,7 @@ body{
                 align-items: center;
                 position: fixed;
                 top: 1rem;
-                right: 2rem;
+                right: 0.8rem;
                 z-index: 10;
                 cursor: pointer;
                 
@@ -171,25 +377,27 @@ body{
             }
         }
         .overlay-slide-right {
+           
             @include android(){
                 transition: all 0.4s ease-in-out;
                 transform: translateX(0);
             }
         }
         .overlay-slide-left {
+           
             @include android(){
                 transition: all 0.8s ease-in-out;
                 transform: translateX(-100vw);
             }
         }
-        ul{
+        .ul{
             padding-top: 50px;
             display:  flex;
             flex-direction: column;
             align-items: center;
             height: 100vh;
             list-style: none;
-            li{
+            .li{
                 height: 8%;
                 
                 a{
@@ -212,6 +420,14 @@ body{
         }
 }
 
+.inner-container{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    // padding-left: 30px;
+    // max-width: 70%;
+}
 .container {
     width: 100%;
     // padding-right: 50px;
