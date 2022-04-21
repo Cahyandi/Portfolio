@@ -35,6 +35,11 @@ body {
   width: 50%;
   padding-bottom: 50px;
 }
+@media (max-width: 576px) {
+  .home .container .col-1 {
+    width: 78%;
+  }
+}
 .home .container .col-1 .inner-container {
   height: 100%;
   display: flex;
@@ -47,6 +52,8 @@ body {
   .home .container .col-1 .inner-container {
     align-items: center;
     padding-top: 60px;
+    padding-left: 0;
+    max-width: none;
   }
 }
 .home .container .col-1 .inner-container p {
@@ -84,7 +91,8 @@ body {
 }
 @media (max-width: 576px) {
   .home .container .col-1 .inner-container .job-desc {
-    display: none;
+    font-size: 0.5em;
+    text-align: center;
   }
 }
 .home .container .col-1 .inner-container .job-desc span {
