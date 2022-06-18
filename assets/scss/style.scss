@@ -8,7 +8,7 @@ $colorwhite: #fff;
 $gold : #F4FA1A;
 $black : #1A1A1A;
 
-//-----Mixin------
+//-----Mixin Media Query------
 @mixin android {
     @media (max-width: 576px) {
       @content;
@@ -24,12 +24,21 @@ $black : #1A1A1A;
       @content;
     }
   }
+//-----AKHIR Mixin Media Query------
 
+
+
+//-----Mixin TRANSITION ANIMASI------
+
+
+
+//-----AKHIR Mixin TRANSITION ANIMASI------
 html {
     scroll-behavior: smooth;
 }
 
 body{
+    overflow-x: hidden;
     background: $black;
 }
 
@@ -44,6 +53,7 @@ body{
         justify-content: space-evenly;
         width: 100%;
         height: calc(100vh - 70px);
+        
         @include android(){
             flex-direction: column;
             align-items: center;
@@ -62,6 +72,9 @@ body{
                 justify-content: center;
                 padding-left: 30px;
                 max-width: 60%;
+                @include tablet(){
+                    max-width: 85%;
+                }
                 @include android(){
                     align-items: center;
                     padding-top: 60px;
@@ -73,6 +86,9 @@ body{
                     font-size: 2.5em;
                     font-family: $fontAcme;
                     letter-spacing: 0.1em;
+                    @include tablet(){
+                        font-size: 1.5em;
+                    }
                     @include android(){
                         font-size: 1em;
                     }
@@ -82,6 +98,9 @@ body{
                     font-size: 5.5em;
                     font-family: $font;
                     font-weight: bold;
+                    @include tablet(){
+                        font-size: 3.5em;
+                    }
                     @include android(){
                         font-size: 2em;
                     }
@@ -96,6 +115,9 @@ body{
                     font-size: 0.8em;
                     line-height: 15px;
                     font-family: $fontOpenSans;
+                    @include tablet(){
+                        font-size: 0.7em;
+                    }
                     @include android(){
                         font-size: 0.5em;
                         text-align: center;
@@ -122,7 +144,6 @@ body{
                     color: $gold;
                     font-family: $font;
                     font-size: 14px;
-
                     vertical-align: middle;
                     -webkit-transform: perspective(1px) translateZ(0);
                     transform: perspective(1px) translateZ(0);
@@ -132,6 +153,12 @@ body{
                     transition-property: color;
                     -webkit-transition-duration: 0.5s;
                     transition-duration: 0.5s;
+                    
+                    @include tablet(){
+                        width: 8em;
+                        height: 3em;
+                        font-size: 11px;
+                    }
                     @include android(){
                         margin-top: 20px;
                         width: 7.5em;
@@ -215,18 +242,26 @@ body{
                 border-top-right-radius: 35%;
                 background: linear-gradient(180deg, rgba(244,250,26,1) 11%, rgba(26,26,26,1) 100%);
                 // background-color: #F4FA1A;
+                
+                @include tablet(){
+                    left: 70px;
+                    margin-left: 0;
+                    width: 18em;
+                    height: 20em;
+                }
                 @include android(){
                     width: 15em;
                     height: 18em;
                     left: 0px;
                     margin-left: 0;
-                    
                 }
                 .img{
                     position: absolute;
                     width: 45em;
                     bottom: 0em;
-                    
+                    @include tablet(){
+                        width: 35em;
+                    }
                     @include android(){
                         width: 24em;
                         height: 20em;
@@ -238,15 +273,29 @@ body{
         .col-3{
             position: relative;
             padding-right: 30px;
-            @include android(){
+            @include tablet(){
                 position: absolute;
-                left: 360px;
-                top: 330px;
-                // bottom: 0px;
+                top: 20px;
+            }
+            @include android(){
+                // position: absolute;
+                // left: 330px;
+                // top: 355px;
+                // // bottom: 0px;
+                display: none;
             }
             .inner-container{
+                
+                @include tablet(){
+                    display: flex;
+                    flex-direction: unset;
+                }
                 @include android(){
-                    height: 250px;
+                    // display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                    height: 100%;
                 }
                 .text-follow{
                     text-align: center;
@@ -254,17 +303,109 @@ body{
                     font-size: 1.1em;
                     font-family: $fontOpenSans;
                     writing-mode: vertical-rl;
-                    
+                    padding-right: 3px;
+                    @include tablet(){
+                        writing-mode: unset;
+                        letter-spacing: 5px;
+                    }
+                    @include android(){
+                        writing-mode: vertical-rl;
+                    }
                 }
                 .icon-sosmed{
                     padding-bottom: 8px;
                     padding-top: 8px;
+                    @include tablet(){
+                        padding-bottom: 0px;
+                        padding-top: 0px;
+                        display: flex;
+                        justify-content: space-between;
+                    }
+                    @include android(){
+                        display: inline-block;
+                    }
+                    li {
+                        padding-bottom: 10px;
+                        @include tablet(){
+                            padding: 0 8px;
+                        }
+                        a {
+                            position: relative;
+                            display: inline-block;
+                            width: 25px;
+                            height: 25px;
+                            border-radius: 50%;
+                            text-align: center;
+                            transition: 200ms;
+                            // background-color: $colorwhite;
+                            &:after {
+                                pointer-events: none;
+                                position: absolute;
+                                width: 100%;
+                                height: 100%;
+                                border-radius: 50%;
+                                content: '';
+                                box-sizing: content-box;
+                                box-shadow: 0 0 0 2px #fff;
+                                top: 0;
+                                left: 0;
+                                opacity: 0;
+                                transition: 200ms;
+                            }
+                            &:hover {
+                                background-color: #fff;
+                                
+                                &:after {
+                                    opacity: 1;
+                                    transform: scale(1.15);
+                                }
+                            }
+                            i{
+                                font-size: 1.5em;
+                                color: $colorwhite;
+                            }
+                            
+                        }
+                        &:nth-child(1) {
+                            &:hover {
+                                i {
+                                    color: #f2003c;
+                                }
+                            }
+                        }
+                        &:nth-child(2) {
+                            &:hover {
+                                i {
+                                    color: #007bb5;
+                                }
+                            }
+                        }
+                        &:nth-child(3) {
+                            &:hover {
+                                i {
+                                    color: #25d366;
+                                }
+                            }
+                        }
+                        &:nth-child(4) {
+                            &:hover {
+                                i {
+                                    color: #171515;
+                                }
+                            }
+                        }
+                    }
                 }
                 hr{
                     border: none;
                     border-left:  2px solid $colorwhite;
                     height: 40px;
-                    
+                    @include tablet(){
+                        display: none;
+                    }
+                    @include android(){
+                        display: block;
+                    }
                 }
             }
         }
@@ -288,209 +429,224 @@ body{
 // ===============
 //     Header
 // ===============
-.header{
-    position: sticky;
-    top: 0;
-    box-shadow: -1px 10px 4px rgba(0, 0, 0, 0.25);
-    background-color: $black;
-        
-        .navigation{
-            width: 90%;
-            max-width: 1000px;
-            margin: 0 auto;
-            text-align: center;
-            @include android(){
-                display: none;
-            }
-            // ul {
-            //     li {
-            //         display: inline-block;
-            //         a {
-            //             display: inline-block;
-            //             text-decoration: none;
-            //             padding: 10px 20px;
-            //             color: black;
-            //         }
-            //     }
-            //     li.active {
-            //         background-color: crimson;
-            //         transition: 0.3s ease background-color;
-            //         a {
-            //             color: rgb(255, 255, 255);
-            //         }
-            //     }
-            // }
-            // .header-link{
-            //     display: flex;
-            //     justify-content: center;
-            //     .header-link-item{
-            //         display: inline-block;
-            //         padding: 20px;
-                    
-            //         a{
-            //             color: $colorwhite;
-            //             text-decoration: none;
-            //             font-size: 16px;
-            //             font-family: $font;
-            //             // display: inline-block;
-            //             // padding: 10px 20px;
-            //             &:hover{
-            //                 color: $gold;
-            //                 border-bottom: 3px solid $gold;
-            //                 transition: transform 500ms ease-out;
-            //             }
-            //         }
-            //     }
-            //     .header-link-item .active {
-            //         background-color: crimson;
-            //         transition: 0.3s ease background-color;
-            //         a {
-            //             color: rgb(255, 255, 255);
-            //         }
-            //     }
-                
-            // }
-        }
 
-        .hamburger{
-            display: none;
-            @include android(){
-                display: block;
-                align-items: center;
-                position: fixed;
-                top: 1rem;
-                right: 1rem;
-                z-index: 10;
-                cursor: pointer;
-                
-            }
-            .menu-bar1 {
-                width: 1.5rem;
-                height: 0.1rem;
-                background-color: #fff;
-                margin: 0.4rem 0;
-                transition: 0.4s;
-            }
-            .menu-bar2 {
-                width: 1rem;
-                height: 0.1rem;
-                margin-left: auto;
-                background-color: #fff;
-            }
-            .menu-bar3 {
-                width: 1.5rem;
-                height: 0.1rem;
-                background-color: #fff;
-                margin: 0.4rem 0;
-                transition: 0.4s;
-            }
-            
-        }
-        .active {
-            .menu-bar1 {
-                transform: rotate(-35deg) translate(0.1rem, 0.2rem);
-            }
-            .menu-bar2 {
-                opacity: 0;
-            }
-            .menu-bar3 {
-                transform: rotate(45deg) translate(-0.4rem, -0.8rem);
-            }
-        }
-        .overlay{
-            display: none;
-            @include android(){
-                display: block;
-                z-index: 9;
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100vw;
-                height: 100vh;
-                
-                background-color: rgba(0, 0, 0, 0.7);
-            }
-        }
-        .overlay-slide-right {
-           
-            @include android(){
-                transition: all 0.4s ease-in-out;
-                transform: translateX(0);
-            }
-        }
-        .overlay-slide-left {
-           
-            @include android(){
-                transition: all 0.8s ease-in-out;
-                transform: translateX(-100vw);
-            }
-        }
-        .ul{
-            padding-top: 50px;
-            display:  flex;
-            flex-direction: column;
-            align-items: center;
-            height: 100vh;
-            list-style: none;
-            .li{
-                height: 8%;
-                
-                a{
-                    letter-spacing: 0.2rem;
-                    font-size: 1.5em;
-                    font-family: $font;
-                    text-decoration: none;
-                    color: $colorwhite;
-                    &:hover{
-                        color: #F4FA1A;
-                    }
-                }
-            }
-        }
-        .slide-in{
-            animation: slide-in 0.4s linear 0.2s both;
-        }
-        .slide-out{
-            animation: slide-in 0.4s linear 0.2s both;
-        }
-}
-
-nav {
+.navigation {
+    width: 100%!important;
 	position: sticky;
 	top: 0;
     box-shadow: -1px 10px 4px rgba(0, 0, 0, 0.25);
     background-color: $black;
+    @include android(){
+        // display: none;
+        box-shadow: unset ;
+    }
 	.container {
-		width: 90%;
+		// width: 90%;
 		max-width: 1000px;
 		margin: 0 auto;
 		text-align: center;
 		padding: 10px;
-		ul {
+        @include android(){
+            padding: 0;
+        }
+		.navbar {
+            @include android(){
+                position: absolute;
+                display: flex;
+                flex-direction: column;
+                justify-content:center ;
+                align-items: center;
+                gap: 25px;
+                // top: 100%;
+                bottom: 0;
+                right: -100%;
+                width: 100%;
+                height: 100%;
+                background-color: $black;
+            }
 			li {
 				display: inline-block;
+                position: relative;
 				a {
+                    position: relative;
 					display: inline-block;
 					text-decoration: none;
 					padding: 10px 20px;
                     font-size: 16px;
                     font-family: $font;
 					color: white;
+                    @include android(){
+                        padding: 0;
+                        font-size: 20px;
+                    }
+                    &::after{
+                        bottom: 0;
+                        content: '';
+                        display: block;
+                        height: 2px;
+                        left: 50%;
+                        position: absolute;
+                        background: $gold;
+                        transition: width 0.5s ease 0s, left 0.5s ease 0s;
+                        width: 0;
+                        @include android(){
+                            background: none;
+                        }
+                    }
                     &:hover{
                         color: $gold;
                         transition:  0.5s;
+                        &:after {
+                            
+                            width: 100%;
+                            left: 0;
+                            // transform: scaleX(1);
+                            // transform-origin: bottom left;
+                        }
                     }
 				}
 			}
 			li.active {
 				a {
                     color: $gold;
-                    border-bottom: 2px solid $gold;
-				}
+                  
+                    
+                }
 			}
 		}
+        // ADA class active
+        .navbar.active {
+            right: 0;
+            top: 0;
+            position: fixed;
+        }
+
+        .hamburger-menu{
+            display: none;
+            @include android(){
+                display: block;
+                align-items: center;
+                position: fixed;
+                padding: 10px;
+                top: 1rem;
+                right: 1rem;
+                z-index: 10;
+                width: 28px;
+                height: 35px;
+                cursor: pointer;
+                
+        }
+            span{
+                display: none;
+                background-color: $colorwhite;
+                width: 100%;
+                height: 4px;
+                margin: 0 0 5px 0;
+                border-radius: 3px;
+                @include android(){
+                    display: block;
+                }
+            }
+            
+        }
+        .hamburger-menu.active {
+            .menu-1 {
+                transform: rotate(-45deg) translate(-0.1rem, 0.7rem);
+            }
+            .menu-2 {
+                opacity: 0;
+            }
+            .menu-3 {
+                transform: rotate(45deg) translate(-0.1rem, -0.7rem);
+            }
+        }
 	}
 }
+// ROTATE BAR
+
+
+
+// ===========   GLOBAL  ===========
+.icons-sosmed{
+        display: none;
+        @include android(){
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+        }
+        li {
+            // padding-bottom: 10px;
+            
+            a {
+                position: relative;
+                display: inline-block;
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                text-align: center;
+                transition: 200ms;
+                // background-color: $colorwhite;
+                &:after {
+                    pointer-events: none;
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 50%;
+                    content: '';
+                    // box-sizing: content-box;
+                    // box-shadow: 0 0 0 2px #fff;
+                    top: 0;
+                    left: 0;
+                    opacity: 0;
+                    transition: 200ms;
+                }
+                &:hover {
+                    background-color: #fff;
+                    
+                    &:after {
+                        opacity: 1;
+                        transform: scale(1.15);
+                    }
+                }
+                i{
+                    font-size: 2.5em;
+                    color: $colorwhite;
+                }
+                
+            }
+            &:nth-child(1) {
+                &:hover {
+                    i {
+                        color: #f2003c;
+                    }
+                }
+            }
+            &:nth-child(2) {
+                &:hover {
+                    i {
+                        color: #007bb5;
+                    }
+                }
+            }
+            &:nth-child(3) {
+                &:hover {
+                    i {
+                        color: #25d366;
+                    }
+                }
+            }
+            &:nth-child(4) {
+                &:hover {
+                    i {
+                        color: #171515;
+                    }
+                }
+            }
+        }
+    }
+
+
 .inner-container{
     height: 100%;
     display: flex;
