@@ -34,8 +34,10 @@ $black : #1A1A1A;
 
 //-----AKHIR Mixin TRANSITION ANIMASI------
 html {
-    overflow-x: hidden;
     scroll-behavior: smooth;
+    @include android(){
+        overflow-x: hidden;
+    }
 }
 
 body{
@@ -432,7 +434,7 @@ body{
 // ===============
 
 .navigation {
-    width: 100%!important;
+    // width: 100%!important;
 	position: sticky;
 	top: 0;
     box-shadow: -1px 10px 4px rgba(0, 0, 0, 0.25);
