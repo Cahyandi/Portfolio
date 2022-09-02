@@ -22,9 +22,9 @@ $black2 : #222222;
   }
   @mixin tablet {
     @media (max-width: 768px) {
-      @content;
+        @content;
     }
-  }
+}
 
     @mixin center {
         display: flex;
@@ -35,8 +35,23 @@ $black2 : #222222;
 
 
 
-//-----Mixin TRANSITION ANIMASI------
-
+//----- TRANSITION ANIMASI------
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+@keyframes fadeOut {
+	0% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
 
 
 //-----AKHIR Mixin TRANSITION ANIMASI------
@@ -478,7 +493,8 @@ body{
 
 // ABOUT
 .About{
-    // margin-top: 60px;
+    padding-top: 100px;
+    // padding-bottom: 70px;
     display: inline-block;
     width: 100%;    
     height: 100%;   
@@ -628,6 +644,119 @@ body{
     }
 }
 
+
+// SKLISS
+.Skills{
+    padding-top: 50px;
+    padding-bottom: 100px;
+    width: 100%;
+    height: 100%;
+    .container{
+        width: 50%;
+        .inner-container{
+            @include center();
+            flex-direction: unset;
+            padding-top: 30px;
+            gap: 40px;
+            @include android(){
+                @include center;
+                flex-direction: column;
+            }
+            .row{
+                cursor: pointer;
+                color: $black;
+                font-family: $font;
+                background-color: $gold;
+                border-top-right-radius: 10px;
+                border-top-left-radius: 10px;
+                border-bottom-right-radius: 5px;
+                border-bottom-left-radius: 5px;
+                
+                .col{
+                    background-color: $gold;
+                    align-items: center;
+                    display: flex;
+                    justify-content: space-around;
+                    gap: 20px;
+                    border-radius: 10px;
+                    padding: 20px;
+                    width: 300px;
+                    box-shadow: -1px 10px 4px rgb(0 0 0 / 25%);
+                    color: $black;
+                    @include tablet(){
+                        padding: 10px;
+                        gap: unset;
+                        max-width: 230px;
+                    }
+                    @include android(){
+                        padding: 8px;
+
+                    }
+                    i {
+                        fill: white;
+                        width: 1.25em;
+                        height: 1.25em;
+                        font-size: 2em;
+                        transform: rotateZ(360deg);
+                        transition: transform 1s ease-in-out;
+                    }
+                    .teks{
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-start;
+                        .title{
+                            font-size: 1.5em;
+                            font-family: $font;
+                            font-weight: 400;
+                            
+                        }
+                        .sub-title{
+                            padding-top: 5px;
+                            font-size: 0.8em;
+                            font-family: $fontOpenSans;
+                            color: $black2;
+                        }
+                    }
+                }
+                .dropdown-action.active-dropdown {
+                        span{
+                            i {
+                                transition: 1s ease-in-out;
+                                transform: rotateZ(180deg);
+                            }
+                        }
+                }
+                .dropdown-content{
+                    display: flex;
+                    flex-direction: column;
+                    @include center;
+                    gap: 8px;
+                    font-size: 1em;
+                    font-weight: 800;
+                    max-height: 0;
+                    transition: max-height 1s ease-in-out;
+                    overflow: hidden;
+                    padding: 0;
+                    * {
+                        animation: fadeOut 1s ease-in-out;
+                        opacity: 0;
+                        padding: .5em;
+                    }
+                }
+                .dropdown-action.active-dropdown+.dropdown-content {
+                    * {
+                        animation: fadeIn 1s ease-in-out;
+                        opacity: 1;
+                    }
+                }
+                
+            }
+
+            
+        }
+    }
+
+}
 
 
 // ===========   GLOBAL  ===========
@@ -815,8 +944,14 @@ body{
 }
 .title{
         text-align: center;
-        font-size: 4em;
+        font-size: 3em;
         font-family: $fontAcme;
+}
+.sub-title{
+    @include center();
+    font-size: 1em;
+    font-family: $font;
+    color: #A9A9A9;
 }
 .garis{
         background: $gold;
